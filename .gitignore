@@ -2,7 +2,8 @@
 .vscode
 node_modules
 public/js
-*.scss
+public/styles
+*.css
 *.scss.map
 *.js.map
 
