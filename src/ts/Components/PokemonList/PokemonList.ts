@@ -12,7 +12,6 @@ class PokemonList extends Component {
 
   populate(): void {
     this.pokemonList.forEach((pokemon) => {
-      console.log(pokemon);
       const pokemonListItem = new PokemonListItem(this.element, pokemon);
       pokemonListItem.render();
     });
