@@ -14,7 +14,7 @@ class PokemonListItem extends Component {
     this.element.classList.add(name);
     this.element.innerHTML = `
         <span class="pokemon__id">${id}</span>
-    <img class="pokemon_avatar" src="${avatarUrl}"> 
+    <img class="pokemon_avatar" src="${avatarUrl}" alt="${name}"> 
     <span class="pokemon__name"> ${name} </span>
     <button class="button">Learn More</button>  
     `;
