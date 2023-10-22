@@ -4,7 +4,7 @@ import Component from "../Component/Component.js";
 class PokemonListItem extends Component {
   constructor(
     parentElement: Element,
-    protected pokemon: Pokemon,
+    public pokemon: Pokemon,
   ) {
     super(parentElement, "li", "pokemon");
   }
@@ -15,7 +15,8 @@ class PokemonListItem extends Component {
     this.element.innerHTML = `
         <span class="pokemon__id">${id}</span>
     <img class="pokemon_avatar" src="${avatarUrl}"> 
-    <span class="pokemon__name"> ${name} </span>  
+    <span class="pokemon__name"> ${name} </span>
+    <button class="button">Learn More</button>  
     `;
   }
 }
