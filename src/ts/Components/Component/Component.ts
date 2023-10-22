@@ -11,6 +11,7 @@ abstract class Component {
   }
 
   render(): void {
+    this.populate();
     this.parentElement.appendChild(this.element);
   }
 
