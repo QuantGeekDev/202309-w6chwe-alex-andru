@@ -1,11 +1,20 @@
 import Component from "../Component/Component.js";
+import PokemonListItem from "../PokemonListItem/PokemonListItem.js";
+import type Pokemon from "../../Pokemon/Pokemon.js";
+
 class PokemonList extends Component {
-  constructor(protected parentElement: Element) {
+  constructor(
+    protected parentElement: Element,
+    protected pokemonList: Pokemon[],
+  ) {
     super(parentElement, "ul", "pokemon-list");
   }
 
   populate(): void {
-    this.element.innerHTML = "<li> <h1> Hello! </h1> <li>";
+    this.pokemonList.forEach((pokemon) => {
+      const pokemonListItem = new PokemonListItem(this.element, pokemon);
+      pokemonListItem.render();
+    });
   }
 }
 

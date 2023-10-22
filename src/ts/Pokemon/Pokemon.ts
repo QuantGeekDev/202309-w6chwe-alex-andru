@@ -1,9 +1,9 @@
 class Pokemon {
   constructor(
-    protected id: number,
-    protected name: string,
-    protected url: string,
-    protected avatarUrl: string,
+    public id: number,
+    public name: string,
+    public url: string,
+    public avatarUrl: string,
   ) {}
 
   getId(): number {

@@ -1,9 +1,5 @@
-import Pokemon from "../Pokemon/Pokemon";
-import {
-  type PokemonFormApi,
-  type PokemonListItem,
-  type PokemonListResponse,
-} from "../types/types";
+import Pokemon from "../Pokemon/Pokemon.js";
+import { type PokemonFormApi, type PokemonListResponse } from "../types/types";
 class ApiConnector {
   baseUrl = "https://pokeapi.co/api/v2/";
 
@@ -25,12 +21,21 @@ class ApiConnector {
     return url;
   }
 
-  async getPokemonList(url: string): Promise<PokemonListItem[]> {
+  async getPokemonList(url: string): Promise<Pokemon[]> {
     const response = await fetch(url);
 
     const responseBody = (await response.json()) as PokemonListResponse;
 
-    const pokemonList = responseBody.results;
+    const responseResults = responseBody.results;
+
+    const pokemonList: Pokemon[] = [];
+    for await (const result of responseResults) {
+      const { url: requestUrl } = result;
+
+      const pokemon = await this.getPokemonByUrl(requestUrl);
+
+      pokemonList.push(pokemon);
+    }
 
     return pokemonList;
   }
