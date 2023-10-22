@@ -1,0 +1,32 @@
+@use "../variables/colors";
+.pokemon {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+
+  &__avatar {
+    height: 60vw;
+    width: 60vw;
+    border-radius: 5px;
+    background-color: colors.$list-background;
+  }
+
+  &__id {
+    display: block;
+    color: colors.$pokemon-id;
+  }
+
+  &__id::before {
+    content: "#";
+  }
+
+  &__name {
+    font-size: 1.3rem;
+    display: block;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+}
