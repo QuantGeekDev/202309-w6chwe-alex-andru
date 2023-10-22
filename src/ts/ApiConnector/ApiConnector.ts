@@ -47,6 +47,21 @@ class ApiConnector {
 
     return pokemon;
   }
+
+  async getPokemonById(id: number): Promise<Pokemon> {
+    const url = this.buildPokemonUrl(id);
+    const response = await fetch(url);
+    const responseBody = (await response.json()) as Pokemon;
+    const avatarUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+    const pokemon: Pokemon = {
+      id: responseBody.id,
+      name: responseBody.name,
+      url,
+      avatarUrl,
+    };
+
+    return pokemon;
+  }
 }
 
 export default ApiConnector;

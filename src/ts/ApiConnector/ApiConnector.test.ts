@@ -53,5 +53,17 @@ describe("Given an instance of ApiConnector", () => {
         expect(pokemonName).toBe(expectedName);
       });
     });
+
+    describe("When getPokemonById(2) is called)", () => {
+      test("Returns object whose 'name' parameter returns 'ivysaur'", async () => {
+        const connector = new ApiConnector();
+        const ivysaurId = 2;
+        const expectedName = "ivysaur";
+        const pokemon: Pokemon = await connector.getPokemonById(ivysaurId);
+        const pokemonName = pokemon.name;
+
+        expect(pokemonName).toBe(expectedName);
+      });
+    });
   });
 });
