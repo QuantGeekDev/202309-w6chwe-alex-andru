@@ -1,9 +1,8 @@
-export interface BasePokemon {
+export interface Pokemon {
   id: number;
   name: string;
   url: string;
   avatarUrl: string;
-  types: string[];
 }
 export interface PokemonListResponse {
   count: number;
