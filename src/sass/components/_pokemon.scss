@@ -2,13 +2,18 @@
 .pokemon {
   display: flex;
   flex-direction: column;
-  margin: 15px 0;
+  margin: 15px 10px;
 
   &__avatar {
-    height: 60vw;
-    width: 60vw;
+    height: 55vw;
+    width: 55vw;
     border-radius: 5px;
     background-color: colors.$list-background;
+
+    @media (min-width: 768px) {
+      height: 25vw;
+      width: 25vw;
+    }
   }
 
   &__id {
