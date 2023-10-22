@@ -11,7 +11,9 @@
     "test:dev": "jest --watchAll",
     "prepare": "husky install",
     "build": "tsc",
-    "build:dev": "tsc -w"
+    "build:dev": "tsc -w",
+    "build-styles": "sass src/sass/styles.scss public/styles/index.css",
+    "build-styles:dev": "sass src/sass/styles.scss public/styles/index.css --watch"
   },
   "keywords": [],
   "author": "",
