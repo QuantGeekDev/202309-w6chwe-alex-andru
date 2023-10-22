@@ -6,19 +6,19 @@ class Pokemon {
     protected avatarUrl: string,
   ) {}
 
-  getId() {
+  getId(): number {
     return this.id;
   }
 
-  getName() {
+  getName(): string {
     return this.name;
   }
 
-  getUrl() {
+  getUrl(): string {
     return this.url;
   }
 
-  getAvatarUrl() {
+  getAvatarUrl(): string {
     return this.avatarUrl;
   }
 }
