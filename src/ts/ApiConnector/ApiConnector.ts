@@ -1,10 +1,14 @@
-import { type PokemonListItem, type PokemonListResponse } from "../types/types";
+import {
+  type Pokemon,
+  type PokemonListItem,
+  type PokemonListResponse,
+} from "../types/types";
 class ApiConnector {
   baseUrl = "https://pokeapi.co/api/v2/";
-  category = "pokemon";
 
   buildPokemonUrl(pokemonId: number): string {
-    const url = this.baseUrl + this.category + "/" + pokemonId.toString();
+    const category = "pokemon";
+    const url = this.baseUrl + category + "/" + pokemonId.toString();
     return url;
   }
 
@@ -12,10 +16,11 @@ class ApiConnector {
     offsetFromListStart: number,
     numberOfPokemonsToDisplay: number,
   ) {
+    const category = "pokemon";
     const offsetParam = `offset=${offsetFromListStart}`;
     const numberOfPokemonsToDisplayParam = `limit=${numberOfPokemonsToDisplay}`;
 
-    const url = `${this.baseUrl}${this.category}?${offsetParam}&${numberOfPokemonsToDisplayParam}`;
+    const url = `${this.baseUrl}${category}?${offsetParam}&${numberOfPokemonsToDisplayParam}`;
     return url;
   }
 
@@ -23,9 +28,24 @@ class ApiConnector {
     const response = await fetch(url);
 
     const responseBody = (await response.json()) as PokemonListResponse;
-    const pokemonlist = responseBody.results;
 
-    return pokemonlist;
+    const pokemonList = responseBody.results;
+
+    return pokemonList;
+  }
+
+  async getPokemonByUrl(url: string): Promise<Pokemon> {
+    const response = await fetch(url);
+    const responseBody = (await response.json()) as Pokemon;
+    const avatarUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${responseBody.id}.png`;
+    const pokemon: Pokemon = {
+      id: responseBody.id,
+      name: responseBody.name,
+      url,
+      avatarUrl,
+    };
+
+    return pokemon;
   }
 }
 
