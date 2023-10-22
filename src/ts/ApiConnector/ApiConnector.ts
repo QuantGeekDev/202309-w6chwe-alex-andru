@@ -1,5 +1,6 @@
+import Pokemon from "../Pokemon/Pokemon";
 import {
-  type Pokemon,
+  type PokemonFormApi,
   type PokemonListItem,
   type PokemonListResponse,
 } from "../types/types";
@@ -36,14 +37,13 @@ class ApiConnector {
 
   async getPokemonByUrl(url: string): Promise<Pokemon> {
     const response = await fetch(url);
-    const responseBody = (await response.json()) as Pokemon;
-    const avatarUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${responseBody.id}.png`;
-    const pokemon: Pokemon = {
-      id: responseBody.id,
-      name: responseBody.name,
+    const responseBody = (await response.json()) as PokemonFormApi;
+    const pokemon = new Pokemon(
+      responseBody.id,
+      responseBody.name,
       url,
-      avatarUrl,
-    };
+      responseBody.sprites.front_default,
+    );
 
     return pokemon;
   }
@@ -51,14 +51,13 @@ class ApiConnector {
   async getPokemonById(id: number): Promise<Pokemon> {
     const url = this.buildPokemonUrl(id);
     const response = await fetch(url);
-    const responseBody = (await response.json()) as Pokemon;
-    const avatarUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
-    const pokemon: Pokemon = {
-      id: responseBody.id,
-      name: responseBody.name,
+    const responseBody = (await response.json()) as PokemonFormApi;
+    const pokemon = new Pokemon(
+      responseBody.id,
+      responseBody.name,
       url,
-      avatarUrl,
-    };
+      responseBody.sprites.front_default,
+    );
 
     return pokemon;
   }

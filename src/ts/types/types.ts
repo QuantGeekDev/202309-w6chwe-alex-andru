@@ -1,8 +1,8 @@
-export interface Pokemon {
+export interface PokemonFormApi {
   id: number;
   name: string;
-  url: string;
-  avatarUrl: string;
+  forms: { name: string; url: string };
+  sprites: { front_default: string };
 }
 export interface PokemonListResponse {
   count: number;
