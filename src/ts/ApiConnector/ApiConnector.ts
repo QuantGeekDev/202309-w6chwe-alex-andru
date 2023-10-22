@@ -46,9 +46,10 @@ class ApiConnector {
     const pokemon = new Pokemon(
       responseBody.id,
       responseBody.name,
-      url,
       responseBody.sprites.front_default,
+      responseBody.types,
     );
+    console.log(pokemon);
 
     return pokemon;
   }
@@ -60,8 +61,8 @@ class ApiConnector {
     const pokemon = new Pokemon(
       responseBody.id,
       responseBody.name,
-      url,
       responseBody.sprites.front_default,
+      responseBody.types,
     );
 
     return pokemon;

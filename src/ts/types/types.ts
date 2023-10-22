@@ -3,6 +3,7 @@ export interface PokemonFormApi {
   name: string;
   forms: { name: string; url: string };
   sprites: { front_default: string };
+  types: Array<{ type: { name: string; url: string }; slot: number }>;
 }
 export interface PokemonListResponse {
   count: number;

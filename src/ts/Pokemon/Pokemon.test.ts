@@ -4,12 +4,10 @@ describe("Given an Ivysaur instance of class Pokemon", () => {
   describe("When getId is called", () => {
     test("Then returns '2'", () => {
       const expectedId = 2;
-      const ivysaur = new Pokemon(
-        2,
-        "ivysaur",
-        "ivysaurUrl",
-        "ivysaurAvatarUrl",
-      );
+      const ivysaur = new Pokemon(2, "ivysaur", "ivysaurAvatarUrl", [
+        { type: { name: "Fire", url: "url" }, slot: 1 },
+        { type: { name: "Fire", url: "url" }, slot: 1 },
+      ]);
 
       const actualId = ivysaur.getId();
 
@@ -20,12 +18,10 @@ describe("Given an Ivysaur instance of class Pokemon", () => {
   describe("When getName is called", () => {
     test("Then returns 'ivysaur'", () => {
       const expectedName = "ivysaur";
-      const ivysaur = new Pokemon(
-        2,
-        "ivysaur",
-        "ivysaurUrl",
-        "ivysaurAvatarUrl",
-      );
+      const ivysaur = new Pokemon(2, "ivysaur", "ivysaurAvatarUrl", [
+        { type: { name: "Fire", url: "url" }, slot: 1 },
+        { type: { name: "Fire", url: "url" }, slot: 1 },
+      ]);
 
       const actualName = ivysaur.getName();
 
@@ -33,31 +29,13 @@ describe("Given an Ivysaur instance of class Pokemon", () => {
     });
   });
 
-  describe("When getUrl is called", () => {
-    test("Then returns 'ivysaurUrl'", () => {
-      const expectedUrl = "ivysaurUrl";
-      const ivysaur = new Pokemon(
-        2,
-        "ivysaur",
-        "ivysaurUrl",
-        "ivysaurAvatarUrl",
-      );
-
-      const actualUrl = ivysaur.getUrl();
-
-      expect(actualUrl).toBe(expectedUrl);
-    });
-  });
-
   describe("When getAvatarUrl is called", () => {
     test("Then returns 'ivysaurAvatarUrl'", () => {
       const expectedAvatarUrl = "ivysaurAvatarUrl";
-      const ivysaur = new Pokemon(
-        2,
-        "ivysaur",
-        "ivysaurUrl",
-        "ivysaurAvatarUrl",
-      );
+      const ivysaur = new Pokemon(2, "ivysaur", "ivysaurAvatarUrl", [
+        { type: { name: "Fire", url: "url" }, slot: 1 },
+        { type: { name: "Fire", url: "url" }, slot: 1 },
+      ]);
 
       const actualAvatarUrl = ivysaur.getAvatarUrl();
 
