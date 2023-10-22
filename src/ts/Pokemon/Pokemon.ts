@@ -2,8 +2,8 @@ class Pokemon {
   constructor(
     public id: number,
     public name: string,
-    public url: string,
     public avatarUrl: string,
+    public types: Array<{ type: { name: string; url: string }; slot: number }>,
   ) {}
 
   getId(): number {
@@ -12,10 +12,6 @@ class Pokemon {
 
   getName(): string {
     return this.name;
-  }
-
-  getUrl(): string {
-    return this.url;
   }
 
   getAvatarUrl(): string {
