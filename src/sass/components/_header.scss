@@ -1,0 +1,15 @@
+@use "../variables/colors";
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__logo {
+    height: 100px;
+    width: 150px;
+    align-self: center;
+  }
+  &__title {
+    align-self: center;
+  }
+}
