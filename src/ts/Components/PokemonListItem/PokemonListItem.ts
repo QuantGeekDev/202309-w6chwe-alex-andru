@@ -23,7 +23,7 @@ class PokemonListItem extends Component {
     if (types[1]) {
       const typesElement = this.element.querySelector(".types")!;
       const secondaryTypes = document.createElement("span");
-      const className = types[1].type.name;
+      const className = types[1]?.type.name;
       secondaryTypes.className = className;
       secondaryTypes.innerHTML = `<span class="${types[1].type.name}-type">${types[1].type.name}</span>`;
       typesElement?.appendChild(secondaryTypes);
